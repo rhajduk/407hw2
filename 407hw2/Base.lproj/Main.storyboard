@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ax0-Jr-HQV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calendar Delegate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_07hw2" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,11 +16,61 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9H-Bq-cG3" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
+                                <color key="backgroundColor" red="0.62860095500946045" green="0.90859907865524292" blue="0.92041373252868652" alpha="0.49353448275862066" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="menuViewDelegate" destination="BYZ-38-t0r" id="2dQ-h4-9ZH"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVJ-Vg-NNb" customClass="CVCalendarView" customModule="CVCalendar">
+                                <rect key="frame" x="0.0" y="117" width="600" height="284"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.44924568965517242" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="calendarDelegate" destination="BYZ-38-t0r" id="iyh-tC-Q86"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nVJ-Vg-NNb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="C1M-Zy-hFd"/>
+                            <constraint firstItem="R9H-Bq-cG3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QTG-zQ-dKx"/>
+                            <constraint firstItem="R9H-Bq-cG3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZDk-Cn-JzT"/>
+                            <constraint firstAttribute="trailing" secondItem="nVJ-Vg-NNb" secondAttribute="trailing" id="cjb-TT-Oll"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nVJ-Vg-NNb" secondAttribute="bottom" constant="199" id="gKv-c9-6ss"/>
+                            <constraint firstItem="nVJ-Vg-NNb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="117" id="xO8-HQ-IRs"/>
+                            <constraint firstItem="nVJ-Vg-NNb" firstAttribute="top" secondItem="R9H-Bq-cG3" secondAttribute="bottom" constant="8" id="yTC-md-JbR"/>
+                            <constraint firstAttribute="trailing" secondItem="R9H-Bq-cG3" secondAttribute="trailing" id="ygk-I1-6fn"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Fym-eq-1ST"/>
+                    <connections>
+                        <outlet property="calendarView" destination="nVJ-Vg-NNb" id="CoQ-Yf-Ce8"/>
+                        <outlet property="menuView" destination="R9H-Bq-cG3" id="AuG-dP-f6c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1192" y="337"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4cw-4k-TW1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ax0-Jr-HQV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x53-3w-hEG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MAz-91-D5j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GWe-iG-clU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="524" y="337"/>
         </scene>
     </scenes>
 </document>
